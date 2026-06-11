@@ -1,0 +1,6 @@
+# Local tooling / OS
+.claude/
+.DS_Store
+
+# Build artifacts / packages
+*.zip
