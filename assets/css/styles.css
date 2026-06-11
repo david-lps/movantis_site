@@ -192,7 +192,10 @@ section { position: relative; padding-block: 110px; }
 
 .globe-stage { position: relative; aspect-ratio: 1; width: 100%; max-width: 560px; margin-inline: auto; }
 .globe-stage canvas { display: block; }
-#globe { position: absolute; inset: 0; }
+/* globe is static — let touch/scroll pass straight through (no scroll trap on mobile) */
+.globe-stage { pointer-events: none; touch-action: pan-y; }
+#globe { position: absolute; inset: 0; pointer-events: none; }
+#globe canvas { pointer-events: none !important; touch-action: pan-y !important; }
 .globe-fallback { position: absolute; inset: 0; display: none; place-items: center; }
 .globe-ring { position: absolute; inset: 8%; border-radius: 50%; border: 1px solid rgba(255,106,0,0.12); pointer-events: none; }
 .globe-ring:nth-child(2) { inset: 18%; border-color: rgba(255,106,0,0.08); }
@@ -477,6 +480,10 @@ footer { border-top: 1px solid var(--hair); padding-block: 64px 36px; background
   .uc-grid, .why-grid, .pillars2x2, .dev-feats { grid-template-columns: 1fr; }
   .hero-cta .btn { flex: 1; justify-content: center; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
+  /* compact Contact Us in the mobile top bar */
+  .nav-cta { padding: 8px 14px; font-size: 13px; border-radius: 10px; }
+  .nav-inner { gap: 12px; height: 64px; }
+  .brand-logo { height: 22px; }
 }
 
 /* mobile nav drawer */
