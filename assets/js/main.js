@@ -127,39 +127,75 @@
   const VERTICALS = {
     banks: {
       name: "Banks & Financial Institutions",
-      challenge: "Modernize legacy infrastructure and compete with fintech-native players — digitizing cross-border flows and expanding corridors without regulatory friction, while improving capital efficiency.",
+      challenge: "Modernize legacy infrastructure and compete with fintech-native players — digitizing cross-border flows and expanding markets without regulatory friction, while improving capital efficiency.",
       enables: ["Expand remittance corridors", "Launch digital remittance channels", "Offer real-time payouts", "Monetize FX", "Embed financial services"],
       advantage: "Digital transformation without rebuilding core systems — competitive parity with fintechs, infrastructure depth without the operational burden.",
+      pillars: {
+        growth: "Expand corridors, launch digital channels and monetize FX & new services.",
+        ops: "Modernize without rebuilding core systems — one integration replaces many providers.",
+        liquidity: "Improve capital efficiency and liquidity management across markets.",
+        risk: "Operate under a strong multi-market licensing & compliance foundation.",
+      },
     },
     mtos: {
       name: "Remittance Providers & MTOs",
       challenge: "Rising competition, margin compression and regulatory pressure, with liquidity fragmentation and operational inefficiencies across corridors.",
       enables: ["Expand new corridors", "Launch digital wallet integration", "Improve payout speed", "Deliver real-time remittance experiences"],
       advantage: "Evolve from traditional operators into digital financial ecosystems.",
+      pillars: {
+        growth: "Open new corridors and add digital wallet experiences to grow volume.",
+        ops: "Improve payout speed and cut operational inefficiency across corridors.",
+        liquidity: "Manage liquidity across corridors with less idle capital.",
+        risk: "Meet regulatory pressure with built-in compliance across markets.",
+      },
     },
     fintechs: {
       name: "Fintechs & Neobanks",
       challenge: "Scale quickly across markets, navigate regulation, reduce time-to-market and compete with global players.",
       enables: ["Launch multi-country operations", "Embed cross-border payments", "Monetize FX", "Offer wallets & issuing", "Increase volume per user"],
       advantage: "Scale regionally without building banking infrastructure from scratch.",
+      pillars: {
+        growth: "Launch multi-country operations and grow volume per user with embedded finance.",
+        ops: "Reduce time-to-market — skip building banking infrastructure from scratch.",
+        liquidity: "Access FX and liquidity networks without heavy prefunding.",
+        risk: "Scale across markets under a regulated, compliant foundation.",
+      },
     },
     marketplaces: {
       name: "Marketplaces & Digital Platforms",
       challenge: "Multi-party and split payments, real-time payouts, cross-border seller funding and compliance across countries.",
       enables: ["Monetize payment flows", "Increase seller onboarding & retention", "Expand geographies", "Launch embedded wallet experiences"],
       advantage: "Transform payments from a cost center into a revenue driver.",
+      pillars: {
+        growth: "Monetize payment flows; grow seller onboarding, retention and geographies.",
+        ops: "Automate split payments and real-time payouts through one integration.",
+        liquidity: "Fund sellers cross-border with efficient liquidity.",
+        risk: "Stay compliant across countries as you expand.",
+      },
     },
     enterprise: {
       name: "Enterprise & Cross-Border Commerce",
       challenge: "FX volatility, cross-border supplier payments, liquidity fragmentation, settlement delays and operational complexity.",
       enables: ["Expand trade flows", "Improve supplier relationships", "Optimize FX margins", "Accelerate settlement"],
       advantage: "Institutional-grade cross-border infrastructure without banking buildout.",
+      pillars: {
+        growth: "Expand trade flows and strengthen supplier relationships globally.",
+        ops: "Simplify cross-border supplier payments and reconciliation.",
+        liquidity: "Optimize FX margins, accelerate settlement and free up working capital.",
+        risk: "Institutional-grade compliance across jurisdictions.",
+      },
     },
     global: {
       name: "Global Platforms Expanding into LATAM",
       challenge: "Fragmented regulation, integrating local rails, FX & liquidity, compliance and time-to-market.",
       enables: ["Enter multiple countries through one integration", "Offer localized payouts", "Monetize regional flows", "Accelerate customer acquisition"],
       advantage: "Scale across LATAM with institutional confidence.",
+      pillars: {
+        growth: "Enter multiple countries through one integration; monetize regional flows.",
+        ops: "Offer localized payouts without per-country buildout.",
+        liquidity: "Tap local liquidity and FX without heavy prefunding.",
+        risk: "Scale across LATAM with institutional regulatory confidence.",
+      },
     },
   };
   const vertCard = $("#vertCard");
@@ -180,6 +216,12 @@
           <div class="blocklabel" style="margin-top:0;">How Movantis enables growth</div>
           <ul class="list">${v.enables.map((e) => `<li>${ICON.check}${e}</li>`).join("")}</ul>
         </div>
+      </div>
+      <div class="pillars2x2" style="margin-top:24px;">
+        <div class="mini"><h6>Growth &amp; Revenue</h6><p>${v.pillars.growth}</p></div>
+        <div class="mini"><h6>Operational &amp; Cost Optimization</h6><p>${v.pillars.ops}</p></div>
+        <div class="mini"><h6>Liquidity &amp; Capital Efficiency</h6><p>${v.pillars.liquidity}</p></div>
+        <div class="mini"><h6>Risk &amp; Regulatory Advantage</h6><p>${v.pillars.risk}</p></div>
       </div>`;
   }
   const segButtons = $$(".seg [data-v]");
@@ -191,8 +233,8 @@
   renderVertical("banks");
 
   /* ---------- nav dropdown links → jump + activate the right tab/vertical ---------- */
-  $$(".dropdown a[data-tab]").forEach((a) => a.addEventListener("click", () => activateProduct(a.dataset.tab)));
-  $$(".dropdown a[data-v]").forEach((a) => a.addEventListener("click", () => activateVertical(a.dataset.v)));
+  $$("a[data-tab]").forEach((a) => a.addEventListener("click", () => activateProduct(a.dataset.tab)));
+  $$("a[data-v]").forEach((a) => a.addEventListener("click", () => activateVertical(a.dataset.v)));
 
   /* ---- Use cases ---- */
   const USE_CASES = [

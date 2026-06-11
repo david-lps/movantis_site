@@ -40,11 +40,11 @@
         <div class="nav-item">
           <a href="#capabilities" aria-haspopup="true">Capabilities <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
           <div class="dropdown wide">
-            <a href="#capabilities">Cross-Border Money Transmission <span>Real-time transactions across rails</span></a>
-            <a href="#capabilities">Payments <span>Pay-ins &amp; payouts across markets</span></a>
-            <a href="#capabilities">FX &amp; Liquidity <span>Conversion &amp; liquidity management</span></a>
-            <a href="#capabilities">Issuing &amp; Processing <span>Card programs &amp; processing</span></a>
-            <a href="#capabilities">Wallet Infrastructure <span>Embedded wallets &amp; balances</span></a>
+            <a href="#capabilities" data-tab="xborder">Cross-Border Money Transmission <span>Real-time transactions across rails</span></a>
+            <a href="#capabilities" data-tab="payments">Payments <span>Pay-ins &amp; payouts across markets</span></a>
+            <a href="#capabilities" data-tab="fx">FX &amp; Liquidity <span>Conversion &amp; liquidity management</span></a>
+            <a href="#capabilities" data-tab="issuing">Issuing &amp; Processing <span>Card programs &amp; processing</span></a>
+            <a href="#capabilities" data-tab="wallet">Wallet Infrastructure <span>Embedded wallets &amp; balances</span></a>
           </div>
         </div>
         <div class="nav-item">
@@ -150,17 +150,20 @@
 
     <!-- ============ TRUST / NETWORK STRIP ============ -->
     <section class="trust wrap" aria-label="Network & partners">
-      <p class="trust-note" style="margin-bottom:22px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;">Movantis connects financial rails, liquidity networks &amp; institutions</p>
-      <div class="trust-rail">
-        <span class="trust-tag">Banks</span>
-        <span class="trust-tag">Fintech Platforms</span>
-        <span class="trust-tag">Money Transfer Operators</span>
-        <span class="trust-tag">Financial Rails</span>
-        <span class="trust-tag">Liquidity Networks</span>
-        <span class="trust-tag">Locally Regulated Entities</span>
-        <span class="trust-tag">Authorized Partners</span>
+      <div class="trust-band reveal">
+        <span class="eyebrow" style="justify-content:center;">Movantis Connects</span>
+        <h3 class="trust-title">Financial rails, liquidity networks &amp; institutions — unified.</h3>
+        <p class="trust-sub">We integrate banks, fintech platforms and Money Transfer Operators into a single platform built for cross-border operations at scale, through locally regulated entities and authorized partners.</p>
+        <div class="trust-rail">
+          <span class="trust-tag"><i></i>Banks</span>
+          <span class="trust-tag"><i></i>Fintech Platforms</span>
+          <span class="trust-tag"><i></i>Money Transfer Operators</span>
+          <span class="trust-tag"><i></i>Financial Rails</span>
+          <span class="trust-tag"><i></i>Liquidity Networks</span>
+          <span class="trust-tag"><i></i>Locally Regulated Entities</span>
+          <span class="trust-tag"><i></i>Authorized Partners</span>
+        </div>
       </div>
-      <p class="trust-note">Through locally regulated entities and authorized partners, designed for cross-border operations at scale.</p>
     </section>
 
     <!-- ============ PROBLEM ============ -->
@@ -194,41 +197,281 @@
         <h2 class="h-sec">Unified infrastructure for global value movement.</h2>
         <p class="lead">The Movantis platform unifies capabilities across traditional and digital rails — enabling companies to operate seamlessly across global markets without managing multiple providers or fragmented infrastructure. Through a single integration, Movantis offers:*</p>
       </div>
-      <div class="cap-grid">
-        <div class="card cap-card reveal" data-d="0">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M2 12h20M12 2c3 3 3 17 0 20M12 2c-3 3-3 17 0 20"/></svg></div>
-          <h4>Cross-Border Money Transmission</h4>
-          <p>Real-time cross-border transactions across traditional and digital rails, through locally regulated entities and authorized partners.</p>
-          <ul class="list"><li>{{c}} Remittances</li><li>{{c}} B2B &amp; B2C transfers</li><li>{{c}} Multi-country payouts</li></ul>
+      <div class="tabbar reveal" data-d="1" role="tablist" aria-label="Capabilities">
+        <button class="tab" role="tab" aria-selected="true" data-tab="xborder">Cross-Border Money Transmission</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="payments">Payments</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="fx">FX &amp; Liquidity</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="issuing">Issuing &amp; Processing</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="wallet">Wallet Infrastructure</button>
+      </div>
+
+      <!-- Cross-Border -->
+      <div class="panel active" id="panel-xborder" role="tabpanel">
+        <div class="pillar-grid">
+          <div>
+            <h3 style="font-size:28px;">Cross-Border Money Transmission</h3>
+            <div class="subproducts">
+              <span class="subproduct">Remittances</span><span class="subproduct">B2B Payments</span>
+              <span class="subproduct">B2C Payments</span><span class="subproduct">Multi-Country Payouts</span>
+            </div>
+            <div class="blocklabel">The Challenge</div>
+            <p style="color:var(--slate-300); font-size:14.5px; margin:0 0 8px;">Cross-border flows are fragmented, expensive and operationally complex.</p>
+            <ul class="list">
+              <li>{{c}} Liquidity fragmentation across markets</li>
+              <li>{{c}} FX inefficiencies and margin erosion</li>
+              <li>{{c}} Regulatory complexity across jurisdictions</li>
+              <li>{{c}} Settlement delays &amp; reconciliation burden</li>
+            </ul>
+            <div class="blocklabel">Core Use Cases</div>
+            <div class="impact-row">
+              <span class="impact">Remittance corridor expansion</span>
+              <span class="impact">Digital migration of cash flows</span>
+              <span class="impact">Cross-border B2B supplier payments</span>
+              <span class="impact">Multi-country payout infrastructure</span>
+            </div>
+            <div class="blocklabel">Why Movantis</div>
+            <ul class="list">
+              <li>{{c}} Multi-market licensing framework</li>
+              <li>{{c}} Deep US–LATAM corridor expertise</li>
+              <li>{{c}} Direct access to local rails &amp; corridors</li>
+              <li>{{c}} Through locally regulated entities &amp; partners</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <div class="blocklabel" style="margin-top:0;">How It Works</div>
+              <div class="flow">
+                <div class="flow-step"><div class="flow-num">1</div><div><h5>Unified API Integration</h5><p>One connection to the entire network.</p></div></div>
+                <div class="flow-step"><div class="flow-num">2</div><div><h5>Access to Local Rails &amp; Corridors</h5><p>Reach markets through regulated entities.</p></div></div>
+                <div class="flow-step"><div class="flow-num">3</div><div><h5>Compliance &amp; Regulatory Checks</h5><p>AML, KYC and sanctions screening per jurisdiction.</p></div></div>
+                <div class="flow-step"><div class="flow-num">4</div><div><h5>FX &amp; Liquidity Optimization</h5><p>Margin-aware conversion and liquidity.</p></div></div>
+                <div class="flow-step"><div class="flow-num">5</div><div><h5>Settlement &amp; Reconciliation</h5><p>Unified across markets and rails.</p></div></div>
+              </div>
+              <div class="blocklabel">Business Impact</div>
+              <div class="impact-grid">
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Lower transaction costs</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Improved liquidity efficiency</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Faster settlement cycles</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Broader market coverage</span></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card cap-card reveal" data-d="1">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a3 3 0 0 0 3 3h9M18 8l4 4-4 4M6 9v12"/></svg></div>
-          <h4>Payments</h4>
-          <p>Accept and disburse payments across markets — pay-ins and payouts — through one unified integration.</p>
-          <ul class="list"><li>{{c}} Pay-ins</li><li>{{c}} Payouts</li><li>{{c}} Real-time disbursement</li></ul>
+      </div>
+
+      <!-- Payments -->
+      <div class="panel" id="panel-payments" role="tabpanel">
+        <div class="pillar-grid">
+          <div>
+            <h3 style="font-size:28px;">Payments</h3>
+            <div class="subproducts">
+              <span class="subproduct">Pay-Ins</span><span class="subproduct">Pay-Outs</span>
+              <span class="subproduct">Real-Time Disbursement</span><span class="subproduct">Reconciliation</span>
+            </div>
+            <div class="blocklabel">The Challenge</div>
+            <p style="color:var(--slate-300); font-size:14.5px; margin:0 0 8px;">Operating payments across markets requires multiple local integrations and per-country adaptation.</p>
+            <ul class="list">
+              <li>{{c}} Multiple local integrations per market</li>
+              <li>{{c}} Regulatory adaptation per country</li>
+              <li>{{c}} Settlement fragmentation</li>
+              <li>{{c}} Reconciliation complexity</li>
+            </ul>
+            <div class="blocklabel">Core Use Cases</div>
+            <div class="impact-row">
+              <span class="impact">Multi-country pay-in acceptance</span>
+              <span class="impact">Marketplace &amp; gig payout automation</span>
+              <span class="impact">Real-time disbursement</span>
+              <span class="impact">Split payment management</span>
+            </div>
+            <div class="blocklabel">Why Movantis</div>
+            <ul class="list">
+              <li>{{c}} Direct local rail access</li>
+              <li>{{c}} Real-time payment capabilities</li>
+              <li>{{c}} Built-in liquidity management</li>
+              <li>{{c}} Unified reconciliation &amp; reporting</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <div class="blocklabel" style="margin-top:0;">How It Works</div>
+              <div class="flow">
+                <div class="flow-step"><div class="flow-num">1</div><div><h5>Single API Integration</h5><p>One contract across markets.</p></div></div>
+                <div class="flow-step"><div class="flow-num">2</div><div><h5>Local Rail Connectivity</h5><p>Direct access to in-country rails.</p></div></div>
+                <div class="flow-step"><div class="flow-num">3</div><div><h5>Intelligent Routing</h5><p>Routed for the highest success rate.</p></div></div>
+                <div class="flow-step"><div class="flow-num">4</div><div><h5>Real-Time Monitoring</h5><p>Live visibility on every transaction.</p></div></div>
+                <div class="flow-step"><div class="flow-num">5</div><div><h5>Settlement &amp; Reporting</h5><p>Unified settlement and reconciliation.</p></div></div>
+              </div>
+              <div class="blocklabel">Business Impact</div>
+              <div class="impact-grid">
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Faster time to market</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Higher success rates</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Reduced integration complexity</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Lower operational overhead</span></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card cap-card reveal" data-d="2">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h14l-3-3M21 17H7l3 3"/></svg></div>
-          <h4>FX &amp; Liquidity</h4>
-          <p>Currency conversion and liquidity management optimized for global value movement.</p>
-          <ul class="list"><li>{{c}} Multi-currency</li><li>{{c}} Liquidity networks</li><li>{{c}} Margin efficiency</li></ul>
+      </div>
+
+      <!-- FX & Liquidity -->
+      <div class="panel" id="panel-fx" role="tabpanel">
+        <div class="pillar-grid">
+          <div>
+            <h3 style="font-size:28px;">FX &amp; Liquidity</h3>
+            <div class="subproducts">
+              <span class="subproduct">Multi-Currency</span><span class="subproduct">Currency Conversion</span>
+              <span class="subproduct">Liquidity Management</span><span class="subproduct">Treasury</span>
+            </div>
+            <div class="blocklabel">The Challenge</div>
+            <p style="color:var(--slate-300); font-size:14.5px; margin:0 0 8px;">Managing currency and liquidity across markets erodes margins and ties up capital.</p>
+            <ul class="list">
+              <li>{{c}} FX volatility &amp; margin erosion</li>
+              <li>{{c}} Liquidity fragmentation across markets</li>
+              <li>{{c}} Idle capital &amp; prefunding</li>
+              <li>{{c}} Manual treasury operations</li>
+            </ul>
+            <div class="blocklabel">Core Use Cases</div>
+            <div class="impact-row">
+              <span class="impact">Cross-border FX conversion</span>
+              <span class="impact">Treasury optimization</span>
+              <span class="impact">Liquidity management across markets</span>
+              <span class="impact">Multi-currency settlement</span>
+            </div>
+            <div class="blocklabel">Why Movantis</div>
+            <ul class="list">
+              <li>{{c}} Competitive FX pricing</li>
+              <li>{{c}} Liquidity networks across markets</li>
+              <li>{{c}} Capital efficiency</li>
+              <li>{{c}} Broad multi-currency support</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <div class="blocklabel" style="margin-top:0;">How It Works</div>
+              <div class="flow">
+                <div class="flow-step"><div class="flow-num">1</div><div><h5>Single API Integration</h5><p>Access FX through one platform.</p></div></div>
+                <div class="flow-step"><div class="flow-num">2</div><div><h5>Multi-Currency Pricing</h5><p>Real-time rates across markets.</p></div></div>
+                <div class="flow-step"><div class="flow-num">3</div><div><h5>Optimized Conversion</h5><p>Margin-aware currency conversion.</p></div></div>
+                <div class="flow-step"><div class="flow-num">4</div><div><h5>Liquidity Sourcing</h5><p>Liquidity networks reduce prefunding.</p></div></div>
+                <div class="flow-step"><div class="flow-num">5</div><div><h5>Settlement</h5><p>Settled across local &amp; global rails.</p></div></div>
+              </div>
+              <div class="blocklabel">Business Impact</div>
+              <div class="impact-grid">
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Better FX margins</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Improved liquidity efficiency</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Less idle capital</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Multi-market scalability</span></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card cap-card reveal" data-d="3">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
-          <h4>Issuing &amp; Processing</h4>
-          <p>Card issuing and processing infrastructure to launch and run financial products.</p>
-          <ul class="list"><li>{{c}} Card programs</li><li>{{c}} Transaction processing</li><li>{{c}} Embedded finance</li></ul>
+      </div>
+
+      <!-- Issuing & Processing -->
+      <div class="panel" id="panel-issuing" role="tabpanel">
+        <div class="pillar-grid">
+          <div>
+            <h3 style="font-size:28px;">Issuing &amp; Processing</h3>
+            <div class="subproducts">
+              <span class="subproduct">Card Issuing</span><span class="subproduct">Processing</span>
+              <span class="subproduct">Program Management</span><span class="subproduct">Embedded Finance</span>
+            </div>
+            <div class="blocklabel">The Challenge</div>
+            <p style="color:var(--slate-300); font-size:14.5px; margin:0 0 8px;">Launching card programs requires regulatory navigation, banking integration and processing infrastructure.</p>
+            <ul class="list">
+              <li>{{c}} Regulatory navigation</li>
+              <li>{{c}} Banking &amp; network integrations</li>
+              <li>{{c}} Compliance orchestration</li>
+              <li>{{c}} Processing infrastructure &amp; scale</li>
+            </ul>
+            <div class="blocklabel">Core Use Cases</div>
+            <div class="impact-row">
+              <span class="impact">Card issuing programs</span>
+              <span class="impact">Embedded card products</span>
+              <span class="impact">Program management</span>
+              <span class="impact">Cross-border card settlement</span>
+            </div>
+            <div class="blocklabel">Why Movantis</div>
+            <ul class="list">
+              <li>{{c}} Regulatory-ready architecture</li>
+              <li>{{c}} Integrated compliance layer</li>
+              <li>{{c}} Processing at scale</li>
+              <li>{{c}} Embedded finance native</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <div class="blocklabel" style="margin-top:0;">How It Works</div>
+              <div class="flow">
+                <div class="flow-step"><div class="flow-num">1</div><div><h5>API-Based Program Setup</h5><p>Stand up programs programmatically.</p></div></div>
+                <div class="flow-step"><div class="flow-num">2</div><div><h5>Integrated Compliance &amp; KYC</h5><p>Onboarding and screening built in.</p></div></div>
+                <div class="flow-step"><div class="flow-num">3</div><div><h5>Card Issuance</h5><p>Issue physical &amp; virtual cards.</p></div></div>
+                <div class="flow-step"><div class="flow-num">4</div><div><h5>Transaction Processing</h5><p>Authorize and process at scale.</p></div></div>
+                <div class="flow-step"><div class="flow-num">5</div><div><h5>Settlement &amp; Reconciliation</h5><p>Unified back-office.</p></div></div>
+              </div>
+              <div class="blocklabel">Business Impact</div>
+              <div class="impact-grid">
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Faster program launch</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>New revenue streams</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Higher engagement</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Multi-market scale</span></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card cap-card reveal" data-d="4">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12h2M3 9h18"/></svg></div>
-          <h4>Wallet Infrastructure</h4>
-          <p>Digital wallet capabilities to embed balances and financial services into your platform.</p>
-          <ul class="list"><li>{{c}} Wallets</li><li>{{c}} Balances</li><li>{{c}} Embedded services</li></ul>
-        </div>
-        <div class="cap-card cap-cta reveal" data-d="5">
-          <h4>One platform.<br/>A single integration.</h4>
-          <p>Built on a unified compliance framework and a strong regulatory foundation across multiple markets.</p>
-          <a href="#contact" class="btn btn-primary btn-sm" data-magnetic>Start moving value globally</a>
+      </div>
+
+      <!-- Wallet Infrastructure -->
+      <div class="panel" id="panel-wallet" role="tabpanel">
+        <div class="pillar-grid">
+          <div>
+            <h3 style="font-size:28px;">Wallet Infrastructure</h3>
+            <div class="subproducts">
+              <span class="subproduct">Digital Wallets</span><span class="subproduct">Balances</span>
+              <span class="subproduct">Accounts</span><span class="subproduct">Embedded Services</span>
+            </div>
+            <div class="blocklabel">The Challenge</div>
+            <p style="color:var(--slate-300); font-size:14.5px; margin:0 0 8px;">Embedding wallets and balances requires compliance, banking integrations and settlement management.</p>
+            <ul class="list">
+              <li>{{c}} Regulatory navigation</li>
+              <li>{{c}} Banking integrations</li>
+              <li>{{c}} Compliance orchestration</li>
+              <li>{{c}} Settlement &amp; scalability</li>
+            </ul>
+            <div class="blocklabel">Core Use Cases</div>
+            <div class="impact-row">
+              <span class="impact">Digital wallet deployment</span>
+              <span class="impact">Embedded finance for platforms</span>
+              <span class="impact">Neobank enablement</span>
+              <span class="impact">Cross-border wallet settlement</span>
+            </div>
+            <div class="blocklabel">Why Movantis</div>
+            <ul class="list">
+              <li>{{c}} Regulatory-ready architecture</li>
+              <li>{{c}} Integrated compliance layer</li>
+              <li>{{c}} Cross-border native capabilities</li>
+              <li>{{c}} Designed for embedded finance</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <div class="blocklabel" style="margin-top:0;">How It Works</div>
+              <div class="flow">
+                <div class="flow-step"><div class="flow-num">1</div><div><h5>API-Based Account Creation</h5><p>Spin up accounts &amp; wallets.</p></div></div>
+                <div class="flow-step"><div class="flow-num">2</div><div><h5>Integrated Compliance &amp; KYC</h5><p>Onboarding and screening built in.</p></div></div>
+                <div class="flow-step"><div class="flow-num">3</div><div><h5>Wallet &amp; Balance Management</h5><p>Manage balances and services.</p></div></div>
+                <div class="flow-step"><div class="flow-num">4</div><div><h5>Payment &amp; Cross-Border Connectivity</h5><p>Native access to the network.</p></div></div>
+                <div class="flow-step"><div class="flow-num">5</div><div><h5>Settlement &amp; Reconciliation</h5><p>Unified across products.</p></div></div>
+              </div>
+              <div class="blocklabel">Business Impact</div>
+              <div class="impact-grid">
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Accelerated launch</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Customer acquisition</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Higher platform stickiness</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Multi-market scalability</span></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -250,14 +493,7 @@
         <button role="tab" aria-selected="false" data-v="global">Global → LATAM</button>
       </div>
 
-      <div class="card reveal" data-d="2" id="vertCard"><!-- injected by JS --></div>
-
-      <div class="pillars2x2 reveal" data-d="3" style="margin-top:16px;">
-        <div class="mini"><h6>Growth &amp; Revenue</h6><p>New markets, new products, more volume per customer.</p></div>
-        <div class="mini"><h6>Operational &amp; Cost Optimization</h6><p>One integration replaces many; lower overhead.</p></div>
-        <div class="mini"><h6>Liquidity &amp; Capital Efficiency</h6><p>Efficient liquidity management across markets.</p></div>
-        <div class="mini"><h6>Risk &amp; Regulatory Advantage</h6><p>Multi-market licensing and built-in compliance.</p></div>
-      </div>
+      <div class="card reveal" data-d="2" id="vertCard"><!-- injected by JS: vertical detail + per-industry 2x2 pillars --></div>
     </section>
 
     <!-- ============ USE CASES ============ -->
@@ -428,10 +664,11 @@
         </div>
         <div class="foot-col">
           <h5>Industries</h5>
-          <a href="#solutions">Banks &amp; FIs</a>
-          <a href="#solutions">Remittance &amp; MTOs</a>
-          <a href="#solutions">Fintechs &amp; Neobanks</a>
-          <a href="#solutions">Marketplaces</a>
+          <a href="#solutions" data-v="banks">Banks &amp; FIs</a>
+          <a href="#solutions" data-v="mtos">Remittance &amp; MTOs</a>
+          <a href="#solutions" data-v="fintechs">Fintechs &amp; Neobanks</a>
+          <a href="#solutions" data-v="marketplaces">Marketplaces</a>
+          <a href="#solutions" data-v="enterprise">Enterprise</a>
         </div>
         <div class="foot-col">
           <h5>Company</h5>

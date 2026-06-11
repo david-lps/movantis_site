@@ -27,35 +27,58 @@
     return;
   }
 
-  // Origination hub (US) + LATAM destinations
-  const HUB = { name: "Miami (US Origination)", lat: 25.76, lng: -80.19 };
-  const DEST = [
-    { name: "Mexico City", lat: 19.43, lng: -99.13, rail: "orange" },
-    { name: "Bogotá",      lat: 4.71,  lng: -74.07, rail: "cyan" },
-    { name: "São Paulo",   lat: -23.55, lng: -46.63, rail: "orange" },
-    { name: "Lima",        lat: -12.05, lng: -77.04, rail: "orange" },
-    { name: "Guatemala City", lat: 14.63, lng: -90.51, rail: "orange" },
-    { name: "Buenos Aires", lat: -34.60, lng: -58.38, rail: "cyan" },
-    { name: "Santiago",    lat: -33.45, lng: -70.66, rail: "orange" },
-    { name: "Houston (US)", lat: 29.76, lng: -95.37, rail: "cyan" },
-    { name: "New York (US)", lat: 40.71, lng: -74.01, rail: "orange" },
+  const ORANGE = "#FF7F39", ORANGE_L = "#FF9A5E", CYAN = "#2DD4BF", CYAN_L = "#7af0e0";
+
+  // Network nodes — multiple US gateways, deep LATAM distribution, worldwide reach
+  const US = [
+    { name: "New York", lat: 40.71, lng: -74.01 }, { name: "Miami", lat: 25.76, lng: -80.19 },
+    { name: "Houston", lat: 29.76, lng: -95.37 }, { name: "Los Angeles", lat: 34.05, lng: -118.24 },
+    { name: "Chicago", lat: 41.88, lng: -87.63 },
+  ];
+  const LATAM = [
+    { name: "Mexico City", lat: 19.43, lng: -99.13 }, { name: "Guadalajara", lat: 20.67, lng: -103.35 },
+    { name: "Bogotá", lat: 4.71, lng: -74.07 }, { name: "São Paulo", lat: -23.55, lng: -46.63 },
+    { name: "Rio de Janeiro", lat: -22.91, lng: -43.17 }, { name: "Lima", lat: -12.05, lng: -77.04 },
+    { name: "Buenos Aires", lat: -34.60, lng: -58.38 }, { name: "Santiago", lat: -33.45, lng: -70.66 },
+    { name: "Guatemala City", lat: 14.63, lng: -90.51 }, { name: "Panama City", lat: 8.98, lng: -79.52 },
+    { name: "Quito", lat: -0.18, lng: -78.47 }, { name: "Santo Domingo", lat: 18.49, lng: -69.93 },
+  ];
+  const GLOBAL = [
+    { name: "London", lat: 51.51, lng: -0.13 }, { name: "Madrid", lat: 40.42, lng: -3.70 },
+    { name: "Lisbon", lat: 38.72, lng: -9.14 }, { name: "Lagos", lat: 6.52, lng: 3.38 },
+    { name: "Dubai", lat: 25.20, lng: 55.27 }, { name: "Singapore", lat: 1.35, lng: 103.82 },
+    { name: "Manila", lat: 14.60, lng: 120.98 }, { name: "Mumbai", lat: 19.08, lng: 72.88 },
   ];
 
-  const ORANGE = "#FF7F39", ORANGE_L = "#FF9A5E", CYAN = "#2DD4BF";
+  const arcs = [];
+  const arc = (a, b, cyan, alt, speed) => arcs.push({
+    startLat: a.lat, startLng: a.lng, endLat: b.lat, endLng: b.lng,
+    color: cyan ? [CYAN, CYAN_L] : [ORANGE, ORANGE_L],
+    alt, speed,
+  });
+  // US <-> LATAM mesh, alternating direction (to / from) for the "vice-versa" feel
+  LATAM.forEach((c, i) => {
+    const u1 = US[i % US.length], u2 = US[(i + 2) % US.length];
+    const toLatam = i % 2 === 0;
+    arc(toLatam ? u1 : c, toLatam ? c : u1, i % 4 === 0, 0.16 + (i % 5) * 0.045, 1700 + (i % 4) * 450);
+    if (i % 3 !== 2) arc(i % 2 ? u2 : c, i % 2 ? c : u2, i % 5 === 0, 0.24 + (i % 3) * 0.05, 2200 + (i % 3) * 400);
+  });
+  // Worldwide reach from US & LATAM gateways
+  GLOBAL.forEach((g, i) => {
+    const src = i % 2 === 0 ? US[i % US.length] : LATAM[(i * 2) % LATAM.length];
+    arc(src, g, i % 2 === 0, 0.32 + (i % 4) * 0.06, 2600 + (i % 3) * 500);
+  });
+  // a couple of intra-LATAM links
+  arc(LATAM[0], LATAM[3], false, 0.18, 2100);
+  arc(LATAM[2], LATAM[6], false, 0.2, 2300);
 
-  const arcs = DEST.map((d, i) => ({
-    startLat: HUB.lat, startLng: HUB.lng,
-    endLat: d.lat, endLng: d.lng,
-    color: d.rail === "cyan" ? [CYAN, "#7af0e0"] : [ORANGE, ORANGE_L],
-    order: i,
-  }));
-
-  const points = [HUB, ...DEST].map((p, i) => ({
-    lat: p.lat, lng: p.lng,
-    size: i === 0 ? 0.9 : 0.45,
-    color: i === 0 ? "#fff" : (p.rail === "cyan" ? CYAN : ORANGE_L),
-    hub: i === 0,
-  }));
+  const points = [
+    ...US.map((p) => ({ lat: p.lat, lng: p.lng, size: 0.6, color: "#fff" })),
+    ...LATAM.map((p) => ({ lat: p.lat, lng: p.lng, size: 0.45, color: ORANGE_L })),
+    ...GLOBAL.map((p) => ({ lat: p.lat, lng: p.lng, size: 0.4, color: CYAN })),
+  ];
+  // gentle ripple rings on a few key gateways (not just one hub)
+  const ringNodes = [US[0], US[1], US[3], LATAM[0], LATAM[3], LATAM[2]];
 
   let world;
   try {
@@ -74,11 +97,11 @@
       .pointRadius("size")
       .arcsData(arcs)
       .arcColor("color")
-      .arcAltitude(0.28)
-      .arcStroke(0.55)
-      .arcDashLength(0.45)
-      .arcDashGap(1.6)
-      .arcDashAnimateTime(2200)
+      .arcAltitude("alt")
+      .arcStroke(0.4)
+      .arcDashLength(0.4)
+      .arcDashGap(2)
+      .arcDashAnimateTime("speed")
       .arcsTransitionDuration(0);
 
     // dark base material with subtle orange wash (mutate existing colors — no global THREE needed)
@@ -88,12 +111,12 @@
     globeMat.emissiveIntensity = 0.4;
     globeMat.shininess = 0.2;
 
-    // rings ripple on the origination hub
-    world.ringsData([{ lat: HUB.lat, lng: HUB.lng }])
-      .ringColor(() => (t) => `rgba(255,127,57,${1 - t})`)
-      .ringMaxRadius(5)
-      .ringPropagationSpeed(2.2)
-      .ringRepeatPeriod(1100);
+    // subtle ripple rings on several key gateways
+    world.ringsData(ringNodes.map((n) => ({ lat: n.lat, lng: n.lng })))
+      .ringColor(() => (t) => `rgba(255,127,57,${0.7 * (1 - t)})`)
+      .ringMaxRadius(4)
+      .ringPropagationSpeed(2)
+      .ringRepeatPeriod(1700);
 
     // load country borders as hex polygons (infrastructure look) — bundled locally (same-origin)
     fetch("assets/data/countries.geojson")
@@ -115,34 +138,26 @@
     sizeGlobe();
     window.addEventListener("resize", sizeGlobe, { passive: true });
 
-    // Fixed framing on the whole of the Americas (North + Central + South)
-    const AMERICAS = { lat: 4, lng: -77, altitude: 2.4 };
+    // Static framing centered on the Americas (shows US + all of LATAM, arcs reaching worldwide)
+    const VIEW = { lat: 6, lng: -72, altitude: 2.55 };
 
-    // controls: drag to explore, but no continuous spin — it stays on the Americas
+    // fully static — no drag, no zoom, no spin (only the arcs/rings animate)
     const controls = world.controls();
+    controls.enabled = false;
     controls.autoRotate = false;
     controls.enableZoom = false;
     controls.enablePan = false;
-    controls.minPolarAngle = Math.PI / 4;
-    controls.maxPolarAngle = Math.PI - Math.PI / 4;
+    controls.enableRotate = false;
 
     if (reduce) {
-      // no intro motion — just frame the Americas
-      world.pointOfView(AMERICAS, 0);
+      world.pointOfView(VIEW, 0);
     } else {
-      // gentle "focus" intro: start slightly wide, then settle onto the Americas
-      world.pointOfView({ lat: 4, lng: -77, altitude: 3.4 }, 0);
-      setTimeout(() => world.pointOfView(AMERICAS, 2600), 300);
+      // one-time gentle focus-in, then it rests — no interaction afterward
+      world.pointOfView({ lat: 6, lng: -72, altitude: 3.3 }, 0);
+      setTimeout(() => world.pointOfView(VIEW, 2400), 300);
     }
 
-    // after the user drags away, ease back to the Americas framing
-    let reframe;
-    controls.addEventListener("start", () => clearTimeout(reframe));
-    controls.addEventListener("end", () => {
-      reframe = setTimeout(() => world.pointOfView(AMERICAS, 1600), 2800);
-    });
-
-    // expose for debugging / framing
+    // expose for debugging
     window.__movantisGlobe = world;
   } catch (err) {
     console.warn("Globe init failed, using fallback:", err);
