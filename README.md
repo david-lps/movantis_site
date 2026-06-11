@@ -41,7 +41,7 @@ MovantisSite/
 - **Tailwind**: not required at runtime — styling is hand-authored design tokens in `styles.css`
   (CSS variables) for a zero-CDN-dependency look. (Swap in Tailwind if you migrate to a framework.)
 - **three.js / globe.gl** (`globe.gl@2.34.4`, loaded from unpkg) — the hero globe.
-- **Fonts**: Inter (body) + Space Grotesk (display) via Google Fonts.
+- **Fonts**: Inter (body + display) via Google Fonts — matches the official Movantis brand.
 - Vanilla JS only. Honors `prefers-reduced-motion` throughout; globe degrades to an SVG
   arc fallback on reduced-motion or when WebGL is unavailable.
 
@@ -49,11 +49,12 @@ MovantisSite/
 
 | Placeholder | Where | Notes |
 |---|---|---|
-| Brand mark ("a" symbol) | `index.html` nav + footer `.brand` (`#mkA`/`#mkB` SVG) and favicon | Hand-built SVG approximation of the official Movantis "a". Drop the official SVG in to replace it. |
-| Wordmark / slogan | `.brand` text (`MOVANTIS`) + `.slogan` ("Move Value. **Unlock Growth.**") | Slogan appears in footer + final CTA. |
+| Official brand assets | `assets/brand/` (`movantis-logo.svg`, `movantis-footer-logo.svg`, `favicon.png`, `cert-badge.webp`) | Pulled from the official movantis.com CDN; used in nav, footer and favicon. |
+| Contact form backend | `index.html` `#contactForm` + handler in `assets/js/main.js` | Demo only — shows a client-side "thank you". Wire to your CRM / Formspree / Webflow endpoint before launch. |
 | Coverage flags | `assets/js/main.js` → `FLAGS` | Simplified inline SVG flags; swap for official flag assets if preferred. |
 | Partner / network logos | `index.html` → Trust strip (`.trust-rail`) | Currently neutral text tags. |
-| Live metrics | `index.html` → `.metrics` (`data-count` attrs) | Marked "representative and illustrative". |
+| Privacy/legal links | footer `Legal` column | Point at official `movantis.com/glba-privacy-notice` and `/global-privacy-notice`. |
+| Live metrics | `index.html` → `.metrics` (`data-count` attrs) | Official figures: 130+ countries · 80,000+ payout locations · 70+ MTOs · $60B+ annual volume. |
 | Coverage rails per country | `assets/js/main.js` → `COVERAGE` | Update tags / add markets. |
 | Corridor cities on the globe | `assets/js/globe.js` → `HUB` / `DEST` | lat/lng + `rail: "orange" | "cyan"`. |
 | API code sample | `index.html` → `#developers` `.code` | Mock `POST /v1/transfers`. |
@@ -66,7 +67,7 @@ MovantisSite/
 
 Defined in `assets/css/styles.css` `:root`:
 
-- Orange: `--orange-500 #FF6A00` (primary), `--orange-400 #FF8534`, `--orange-600 #E85D00`
+- Orange: `--orange-500 #FF7F39` (official primary), `--orange-400 #FF9A5E`, `--orange-600 #E8631C`
 - Ink base: `--ink-950 #0A0A0F` → `--ink-700`
 - Cool accent (digital / stablecoin rail): `--cyan-400 #2DD4BF`
 - Orange = brand / traditional flow · Cyan = stablecoin / digital rail (used sparingly).

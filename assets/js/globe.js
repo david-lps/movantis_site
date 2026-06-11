@@ -41,7 +41,7 @@
     { name: "New York (US)", lat: 40.71, lng: -74.01, rail: "orange" },
   ];
 
-  const ORANGE = "#FF6A00", ORANGE_L = "#FF8534", CYAN = "#2DD4BF";
+  const ORANGE = "#FF7F39", ORANGE_L = "#FF9A5E", CYAN = "#2DD4BF";
 
   const arcs = DEST.map((d, i) => ({
     startLat: HUB.lat, startLng: HUB.lng,
@@ -90,7 +90,7 @@
 
     // rings ripple on the origination hub
     world.ringsData([{ lat: HUB.lat, lng: HUB.lng }])
-      .ringColor(() => (t) => `rgba(255,106,0,${1 - t})`)
+      .ringColor(() => (t) => `rgba(255,127,57,${1 - t})`)
       .ringMaxRadius(5)
       .ringPropagationSpeed(2.2)
       .ringRepeatPeriod(1100);

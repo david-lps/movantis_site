@@ -15,6 +15,7 @@
   };
   // replace placeholders left in the HTML
   $$(".list li").forEach((li) => { li.innerHTML = li.innerHTML.replace("{{c}}", ICON.check); });
+  $$(".cp").forEach((el) => { el.innerHTML = el.innerHTML.replace("{{c}}", ICON.check); });
   $$(".dev-feat").forEach((d) => { d.innerHTML = d.innerHTML.replace("{{b}}", ICON.bolt); });
   $$(".ic-up").forEach((u) => { u.innerHTML = ICON.up; });
 
@@ -48,12 +49,13 @@
       if (!e.isIntersecting) return;
       const el = e.target, target = +el.dataset.count;
       cio.unobserve(el);
-      if (reduce) { el.textContent = target; return; }
+      const fmt = (n) => n.toLocaleString("en-US");
+      if (reduce) { el.textContent = fmt(target); return; }
       const dur = 1400, t0 = performance.now();
       const tick = (now) => {
         const p = Math.min((now - t0) / dur, 1);
         const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(eased * target);
+        el.textContent = fmt(Math.round(eased * target));
         if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
@@ -79,11 +81,22 @@
       $('.cb[data-cb="' + b.dataset.code + '"]').classList.add("active");
     });
   });
-  $("#codeCopy").addEventListener("click", async (e) => {
+  const codeCopy = $("#codeCopy");
+  if (codeCopy) codeCopy.addEventListener("click", async (e) => {
     const active = $(".cb.active");
     try { await navigator.clipboard.writeText(active.innerText); e.target.textContent = "Copied!"; }
     catch { e.target.textContent = "Copy failed"; }
     setTimeout(() => (e.target.textContent = "Copy"), 1600);
+  });
+
+  /* ---------- contact form (demo — no backend) ---------- */
+  const contactForm = $("#contactForm");
+  if (contactForm) contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
+    const done = $("#formDone");
+    contactForm.setAttribute("hidden", "");
+    if (done) { done.removeAttribute("hidden"); done.scrollIntoView({ block: "center", behavior: "smooth" }); }
   });
 
   /* ---------- magnetic buttons ---------- */
@@ -221,13 +234,13 @@
     ww: '<svg viewBox="0 0 30 21" preserveAspectRatio="none"><rect width="30" height="21" fill="#16161F"/><g fill="none" stroke="#2DD4BF" stroke-width="1.2"><circle cx="15" cy="10.5" r="6.6"/><ellipse cx="15" cy="10.5" rx="2.7" ry="6.6"/><line x1="8.4" y1="10.5" x2="21.6" y2="10.5"/></g></svg>',
   };
   const COVERAGE = [
-    { p: "United States", flag: "us", tags: ["Local Rails", "RTP", "Cross-Border", "Licensing", { s: "Stablecoin" }] },
-    { p: "Mexico", flag: "mx", tags: ["SPEI / Local Rails", "Cross-Border", "Multi-Currency", { s: "Fiat & Stablecoin" }] },
+    { p: "United States", flag: "us", tags: ["Local Rails", "RTP", "Cross-Border", "Licensing", { s: "Issuing" }] },
+    { p: "Mexico", flag: "mx", tags: ["SPEI / Local Rails", "Cross-Border", "Multi-Currency", { s: "Wallets" }] },
     { p: "Brazil", flag: "br", tags: ["PIX / Local Rails", "Cross-Border", "Multi-Currency", "Licensing"] },
     { p: "Central America", flag: "ca", tags: ["Local Rails", "Cross-Border Corridors", "Multi-Currency"] },
-    { p: "Colombia", flag: "co", tags: ["Local Rails", "Cross-Border", "Multi-Currency", { s: "Stablecoin" }] },
+    { p: "Colombia", flag: "co", tags: ["Local Rails", "Cross-Border", "Multi-Currency", { s: "Payments" }] },
     { p: "Andean Region", flag: "andean", tags: ["Local Rails", "Cross-Border Corridors", "Multi-Currency"] },
-    { p: "Worldwide (WW)", flag: "ww", tags: ["Cross-Border Corridors", "Multi-Currency", { s: "Stablecoin Settlement" }] },
+    { p: "Worldwide (WW)", flag: "ww", tags: ["Cross-Border Corridors", "Multi-Currency", { s: "Payout Network" }] },
   ];
   $(".cov-list").innerHTML = COVERAGE.map((c) => `
     <div class="cov-row">
@@ -237,12 +250,12 @@
 
   /* ---- How it works flow ---- */
   const HOW = [
-    { t: "Originate", d: "Initiate from the US or in-region.", ic: '<path d="M12 2v14M6 10l6 6 6-6"/><path d="M4 20h16"/>' },
-    { t: "Route", d: "Switch picks the optimal rail.", ic: '<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/>' },
+    { t: "Connect", d: "One integration to the platform.", ic: '<path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8 12h8"/>' },
+    { t: "Access", d: "Markets, rails & liquidity networks.", ic: '<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/>' },
     { t: "Comply", d: "AML / KYC / sanctions screening.", ic: '<path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/>' },
-    { t: "Optimize", d: "FX & liquidity efficiency.", ic: '<path d="M3 17l6-6 4 4 7-7M14 8h6v6"/>' },
-    { t: "Settle", d: "Hybrid: traditional + stablecoin.", ic: '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/>' },
-    { t: "Reconcile", d: "Reconcile & report, unified.", ic: '<path d="M4 4h16v16H4z"/><path d="M9 9h6M9 13h6M9 17h3"/>' },
+    { t: "Convert", d: "FX & liquidity optimization.", ic: '<path d="M3 7h14l-3-3M21 17H7l3 3"/>' },
+    { t: "Settle", d: "Across local & global rails.", ic: '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/>' },
+    { t: "Reconcile", d: "Unified reporting & reconciliation.", ic: '<path d="M4 4h16v16H4z"/><path d="M9 9h6M9 13h6M9 17h3"/>' },
   ];
   const howFlow = $("#howFlow");
   howFlow.innerHTML = HOW.map((h, i) => `
@@ -290,13 +303,13 @@
       const cx1 = 105 + (idx % 4) * 18, cx2 = 195 - (idx % 3) * 18;
       const d = `M44 ${y1} C ${cx1} ${y1}, ${cx2} ${y2}, 256 ${y2}`;
       const ln = mk("path", { d, fill: "none", "stroke-width": "1.5", "stroke-linecap": "round",
-        stroke: idx % 3 === 0 ? "#FF6A00" : (idx % 3 === 1 ? "#E85D00" : "#FF8534"),
+        stroke: idx % 3 === 0 ? "#FF7F39" : (idx % 3 === 1 ? "#E8631C" : "#FF9A5E"),
         "stroke-dasharray": "2 9", class: "tangle-line" + (idx % 2 ? " rev" : "") });
       ln.style.animationDelay = `${(idx % 5) * -0.4}s`;
       tangle.appendChild(ln);
     });
     for (let i = 0; i < 5; i++) {
-      const a = mk("circle", { cx: 44, cy: rowY(i), r: 5, fill: "#FF8534", class: "tg-node" }); a.style.animationDelay = `${i * -0.3}s`; tangle.appendChild(a);
+      const a = mk("circle", { cx: 44, cy: rowY(i), r: 5, fill: "#FF9A5E", class: "tg-node" }); a.style.animationDelay = `${i * -0.3}s`; tangle.appendChild(a);
       const b = mk("circle", { cx: 256, cy: rowY(i), r: 5, fill: "#5C5F6B", class: "tg-node" }); b.style.animationDelay = `${i * -0.45}s`; tangle.appendChild(b);
     }
   }
@@ -307,8 +320,8 @@
     const HX = 150, HY = 115;
     for (let i = 0; i < 5; i++) {
       const y = rowY(i);
-      resolved.appendChild(mk("line", { x1: 44, y1: y, x2: HX, y2: HY, stroke: "rgba(255,106,0,.20)", "stroke-width": "1.4" }));
-      const fi = mk("line", { x1: 44, y1: y, x2: HX, y2: HY, stroke: "#FF8534", "stroke-width": "2", "stroke-linecap": "round", "stroke-dasharray": "1.5 12", class: "flow-in" });
+      resolved.appendChild(mk("line", { x1: 44, y1: y, x2: HX, y2: HY, stroke: "rgba(255,127,57,.20)", "stroke-width": "1.4" }));
+      const fi = mk("line", { x1: 44, y1: y, x2: HX, y2: HY, stroke: "#FF9A5E", "stroke-width": "2", "stroke-linecap": "round", "stroke-dasharray": "1.5 12", class: "flow-in" });
       fi.style.animationDelay = `${i * -0.5}s`; resolved.appendChild(fi);
     }
     for (let i = 0; i < 5; i++) {
@@ -318,15 +331,15 @@
       fo.style.animationDelay = `${i * -0.5 - 0.7}s`; resolved.appendChild(fo);
     }
     for (let i = 0; i < 5; i++) {
-      resolved.appendChild(mk("circle", { cx: 44, cy: rowY(i), r: 5, fill: "#FF8534" }));
+      resolved.appendChild(mk("circle", { cx: 44, cy: rowY(i), r: 5, fill: "#FF9A5E" }));
       resolved.appendChild(mk("circle", { cx: 256, cy: rowY(i), r: 5, fill: "#2DD4BF" }));
     }
-    // pulsing SWITCH hub
-    resolved.appendChild(mk("circle", { cx: HX, cy: HY, r: 24, fill: "none", stroke: "rgba(255,106,0,.5)", "stroke-width": "1.2", class: "hub-ring" }));
-    resolved.appendChild(mk("circle", { cx: HX, cy: HY, r: 27, fill: "rgba(255,106,0,.12)", class: "hub-glow" }));
-    resolved.appendChild(mk("circle", { cx: HX, cy: HY, r: 21, fill: "rgba(255,106,0,.16)", stroke: "#FF6A00", "stroke-width": "1.5" }));
-    const t = mk("text", { x: HX, y: HY + 3.4, "text-anchor": "middle", fill: "#fff", "font-size": "9", "font-family": "Space Grotesk, sans-serif", "font-weight": "700", "letter-spacing": ".4" });
-    t.textContent = "SWITCH";
+    // pulsing Movantis platform hub
+    resolved.appendChild(mk("circle", { cx: HX, cy: HY, r: 26, fill: "none", stroke: "rgba(255,127,57,.5)", "stroke-width": "1.2", class: "hub-ring" }));
+    resolved.appendChild(mk("circle", { cx: HX, cy: HY, r: 29, fill: "rgba(255,127,57,.12)", class: "hub-glow" }));
+    resolved.appendChild(mk("circle", { cx: HX, cy: HY, r: 23, fill: "rgba(255,127,57,.16)", stroke: "#FF7F39", "stroke-width": "1.5" }));
+    const t = mk("text", { x: HX, y: HY + 3.2, "text-anchor": "middle", fill: "#fff", "font-size": "6.4", "font-family": "Inter, sans-serif", "font-weight": "700", "letter-spacing": ".4" });
+    t.textContent = "MOVANTIS";
     resolved.appendChild(t);
   }
 })();
