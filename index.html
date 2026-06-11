@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movantis — Financial Infrastructure for the Americas</title>
+  <meta name="description" content="Move money across the US and Latin America through a single API — with smart routing, multi-country licensing, and hybrid settlement built in. Movantis is institutional-grade money-movement infrastructure for the Americas." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Movantis — One integration. Full ecosystem access." />
+  <meta property="og:description" content="Financial infrastructure built for the Americas. Smart routing, multi-country licensing, and hybrid settlement across US ↔ LATAM corridors." />
+  <meta property="og:site_name" content="Movantis" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0A0A0F" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0A0F'/%3E%3Cg stroke='%23FF6A00' stroke-width='10.5' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M34 21 H70 V79'/%3E%3Ccircle cx='43' cy='60' r='16.5'/%3E%3C/g%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="bg-field"></div>
+  <div class="bg-aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+  <div class="bg-grid"></div>
+  <div class="bg-grain"></div>
+  <div id="progress"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand" aria-label="Movantis — Move Value. Unlock Growth.">
+        <svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M34 21 H70 V79" stroke="url(#mkA)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="43" cy="60" r="16.5" stroke="url(#mkA)" stroke-width="10.5"/>
+          <defs><linearGradient id="mkA" x1="20" y1="14" x2="82" y2="88"><stop stop-color="#FF8534"/><stop offset="1" stop-color="#E85D00"/></linearGradient></defs>
+        </svg>
+        MOVANTIS
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <div class="nav-item">
+          <a href="#products" aria-haspopup="true">Products <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="dropdown wide">
+            <a href="#products" data-tab="cross">Cross-Border <span>Remittances · B2B · FX &amp; Stablecoin Settlement</span></a>
+            <a href="#products" data-tab="payments">Payments <span>Pay-ins · Pay-outs · Orchestration · Virtual Accounts</span></a>
+            <a href="#products" data-tab="dfi">Digital Financial Infrastructure <span>Wallets · Issuing · Embedded finance</span></a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#solutions" aria-haspopup="true">Industries <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#solutions" data-v="banks">Banks &amp; Financial Institutions</a>
+            <a href="#solutions" data-v="mtos">Remittance Providers &amp; MTOs</a>
+            <a href="#solutions" data-v="fintechs">Fintechs &amp; Neobanks</a>
+            <a href="#solutions" data-v="marketplaces">Marketplaces &amp; Platforms</a>
+            <a href="#solutions" data-v="enterprise">Enterprise &amp; Commerce</a>
+            <a href="#solutions" data-v="global">Global Platforms → LATAM</a>
+          </div>
+        </div>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#developers">For Developers</a>
+        <a href="#why">Why Movantis</a>
+        <div class="nav-item">
+          <a href="#contact" aria-haspopup="true">Company <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#contact">About Us <span>History, timeline &amp; acquisitions</span></a>
+            <a href="#contact">Leadership <span>The team behind Movantis</span></a>
+            <a href="#contact">Part of our Group <span>Consumer brands</span></a>
+            <a href="#contact">News <span>Latest from Movantis</span></a>
+          </div>
+        </div>
+      </nav>
+      <a href="#contact" class="btn btn-primary btn-sm nav-cta">Start Building</a>
+      <button class="nav-burger" id="burger" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile drawer -->
+  <div class="drawer" id="drawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+    <a href="#products">Products</a>
+    <a href="#solutions">Industries</a>
+    <a href="#use-cases">Use Cases</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#developers">For Developers</a>
+    <a href="#why">Why Movantis</a>
+    <a href="#contact" class="btn btn-primary">Start Building</a>
+  </div>
+
+  <main class="shell" id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero wrap" id="hero">
+      <div class="hero-grid">
+        <div class="reveal in">
+          <span class="eyebrow">Financial Infrastructure for the Americas</span>
+          <h1>One integration.<br /><span class="grad">Full ecosystem access.</span></h1>
+          <p class="lead">Move money across the US and Latin America through a single API — with smart routing, multi-country licensing, and hybrid settlement built in.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary" data-magnetic>Start Building <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#contact" class="btn btn-ghost" data-magnetic>Talk to our team</a>
+          </div>
+          <div class="chips">
+            <span class="chip"><span class="dot"></span>Multi-country licensed</span>
+            <span class="chip"><span class="dot"></span>Real-time + stablecoin rails</span>
+            <span class="chip"><span class="dot"></span>Built-in AML / KYC</span>
+            <span class="chip"><span class="dot"></span>US ↔ LATAM corridors</span>
+          </div>
+        </div>
+        <div class="reveal in" data-d="1">
+          <div class="globe-stage">
+            <div class="globe-ring"></div>
+            <div class="globe-ring"></div>
+            <div id="globe"></div>
+            <div class="globe-fallback" id="globeFallback">
+              <!-- SVG arc fallback injected / shown for reduced-motion or WebGL failure -->
+              <svg viewBox="0 0 400 400" width="100%" height="100%" aria-hidden="true">
+                <defs>
+                  <radialGradient id="gf" cx="50%" cy="42%" r="55%">
+                    <stop offset="0%" stop-color="#1A1A24"/><stop offset="100%" stop-color="#0A0A0F"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="200" cy="200" r="150" fill="url(#gf)" stroke="rgba(255,106,0,.25)" stroke-width="1"/>
+                <g stroke="rgba(255,255,255,.07)" fill="none">
+                  <ellipse cx="200" cy="200" rx="150" ry="48"/><ellipse cx="200" cy="200" rx="150" ry="100"/>
+                  <line x1="50" y1="200" x2="350" y2="200"/><line x1="200" y1="50" x2="200" y2="350"/>
+                </g>
+                <path d="M150 130 Q200 60 250 150" stroke="#FF6A00" stroke-width="2" fill="none"/>
+                <path d="M150 130 Q120 200 180 260" stroke="#FF8534" stroke-width="2" fill="none"/>
+                <path d="M150 130 Q240 200 250 280" stroke="#2DD4BF" stroke-width="2" fill="none"/>
+                <circle cx="150" cy="130" r="5" fill="#FF6A00"/><circle cx="250" cy="150" r="4" fill="#FF8534"/>
+                <circle cx="180" cy="260" r="4" fill="#FF8534"/><circle cx="250" cy="280" r="4" fill="#2DD4BF"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- live metrics strip -->
+    <div class="wrap">
+      <div class="metrics reveal">
+        <div class="metric"><div class="num"><span data-count="25">0</span><span class="u">+</span></div><div class="lbl">Corridors covered</div></div>
+        <div class="metric"><div class="num"><span data-count="7">0</span></div><div class="lbl">Markets across the Americas</div></div>
+        <div class="metric"><div class="num"><span data-count="12">0</span><span class="u">+</span></div><div class="lbl">Payment rails orchestrated</div></div>
+        <div class="metric"><div class="num"><span data-count="60">0</span><span class="u">s</span></div><div class="lbl">Settlement, real-time class</div></div>
+      </div>
+      <p class="trust-note">Figures shown are representative and illustrative.</p>
+    </div>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust wrap" aria-label="Network & partners">
+      <p class="trust-note" style="margin-bottom:22px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;">Powering a world-class payment network</p>
+      <div class="trust-rail">
+        <span class="trust-tag">Card Networks</span>
+        <span class="trust-tag">Banking Partners</span>
+        <span class="trust-tag">Send Partners</span>
+        <span class="trust-tag">Receive Partners</span>
+        <span class="trust-tag">Real-Time Rails</span>
+        <span class="trust-tag">Stablecoin Settlement</span>
+        <span class="trust-tag">Licensed Entities</span>
+      </div>
+      <p class="trust-note">Placeholder partner & network roles — swap with real logos at launch.</p>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="wrap" id="problem">
+      <div class="section-head reveal">
+        <span class="eyebrow">The Problem</span>
+        <h2 class="h-sec">Moving money across the Americas is fragmented, expensive and operationally complex.</h2>
+        <p class="lead">Dozens of local integrations, mismatched rails, FX leakage and per-country compliance — a tangle that slows every team down. Movantis Switch resolves the many-to-many mess into a single, intelligent line.</p>
+      </div>
+      <div class="problem-vis reveal" data-d="1">
+        <div class="vis-panel before">
+          <h4>Before — many-to-many</h4>
+          <span class="tag">Every partner, rail and regulator wired by hand.</span>
+          <svg viewBox="0 0 300 230" id="tangle" aria-hidden="true"></svg>
+        </div>
+        <div class="vis-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+        <div class="vis-panel after">
+          <h4>After — one integration</h4>
+          <span class="tag">Movantis Switch orchestrates the entire flow.</span>
+          <svg viewBox="0 0 300 230" id="resolved" aria-hidden="true"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="wrap" id="products">
+      <div class="section-head reveal">
+        <span class="eyebrow">Products</span>
+        <h2 class="h-sec">Three pillars. One orchestration engine.</h2>
+        <p class="lead">Everything runs through <strong>Movantis Switch</strong> — a unified API that selects the optimal rail across traditional, real-time and stablecoin networks. Simple integration. Sophisticated orchestration.</p>
+      </div>
+
+      <div class="tabbar reveal" data-d="1" role="tablist" aria-label="Product pillars">
+        <button class="tab" role="tab" aria-selected="true" data-tab="cross">Cross-Border</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="payments">Payments</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="dfi">Digital Financial Infrastructure</button>
+      </div>
+
+      <!-- Pillar A -->
+      <div class="panel active" id="panel-cross" role="tabpanel">
+        <div class="pillar-grid">
+          <div>
+            <h3 style="font-size:30px;">Cross-Border</h3>
+            <div class="subproducts">
+              <span class="subproduct">Remittances</span>
+              <span class="subproduct">US Remittance as a Service</span>
+              <span class="subproduct">B2B Payments</span>
+              <span class="subproduct">B2C Payments</span>
+              <span class="subproduct">FX &amp; Liquidity</span>
+              <span class="subproduct">Stablecoin Settlement</span>
+            </div>
+            <div class="blocklabel">The Challenge</div>
+            <p style="color:var(--slate-300); font-size:14.5px; margin:0 0 8px;">Cross-border financial flows are fragmented, expensive and operationally complex.</p>
+            <ul class="list">
+              <li>{{c}} Liquidity fragmentation across corridors</li>
+              <li>{{c}} FX inefficiencies and margin erosion</li>
+              <li>{{c}} Regulatory complexity across jurisdictions</li>
+              <li>{{c}} Settlement delays &amp; reconciliation burdens</li>
+              <li>{{c}} High operational cost per transaction</li>
+            </ul>
+            <div class="blocklabel">Core Use Cases</div>
+            <div class="impact-row">
+              <span class="impact">Remittance Corridor Expansion</span>
+              <span class="impact">Digital Migration of Cash Flows</span>
+              <span class="impact">Cross-Border B2B Supplier Payments</span>
+              <span class="impact">Multi-Country Payout Infrastructure</span>
+            </div>
+            <div class="blocklabel">Why Movantis</div>
+            <ul class="list">
+              <li>{{c}} Multi-country licensing framework</li>
+              <li>{{c}} U.S.–LATAM corridor expertise</li>
+              <li>{{c}} Smart routing &amp; orchestration engine</li>
+              <li>{{c}} Hybrid settlement (traditional + digital rails)</li>
+              <li>{{c}} Capital efficiency optimization</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <div class="blocklabel" style="margin-top:0;">How It Works</div>
+              <div class="flow">
+                <div class="flow-step"><div class="flow-num">1</div><div><h5>Unified API Integration</h5><p>One connection to the entire Americas network.</p></div></div>
+                <div class="flow-step"><div class="flow-num">2</div><div><h5>Intelligent Routing &amp; Rail Selection</h5><p>Switch picks the optimal rail for cost, speed, reliability.</p></div></div>
+                <div class="flow-step"><div class="flow-num">3</div><div><h5>Compliance &amp; Regulatory Checks</h5><p>AML, KYC and sanctions screening per jurisdiction.</p></div></div>
+                <div class="flow-step"><div class="flow-num">4</div><div><h5>FX &amp; Liquidity Optimization</h5><p>Margin-aware conversion and liquidity management.</p></div></div>
+                <div class="flow-step"><div class="flow-num">5</div><div><h5>Hybrid Settlement Execution</h5><p>Traditional + stablecoin rails for capital efficiency.</p></div></div>
+              </div>
+              <div class="blocklabel">Business Impact</div>
+              <div class="impact-grid">
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Lower transaction costs</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Improved liquidity efficiency</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Faster settlement cycles</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Increased corridor coverage</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Higher operational reliability</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar B -->
+      <div class="panel" id="panel-payments" role="tabpanel">
+        <div class="pillar-grid">
+          <div>
+            <h3 style="font-size:30px;">Payments</h3>
+            <div class="subproducts">
+              <span class="subproduct">Pay-Ins</span>
+              <span class="subproduct">Pay-Outs</span>
+              <span class="subproduct">Payment Orchestration</span>
+              <span class="subproduct">Virtual Accounts</span>
+            </div>
+            <div class="blocklabel">The Challenge</div>
+            <p style="color:var(--slate-300); font-size:14.5px; margin:0 0 8px;">Operating payments across LATAM requires multiple local integrations and per-country adaptation.</p>
+            <ul class="list">
+              <li>{{c}} Multiple local integrations per market</li>
+              <li>{{c}} Regulatory adaptation per country</li>
+              <li>{{c}} Settlement fragmentation</li>
+              <li>{{c}} Operational complexity in reconciliation</li>
+              <li>{{c}} Performance inconsistency</li>
+            </ul>
+            <div class="blocklabel">Core Use Cases</div>
+            <div class="impact-row">
+              <span class="impact">Multi-Country Pay-In Acceptance</span>
+              <span class="impact">Marketplace &amp; Gig Payout Automation</span>
+              <span class="impact">Real-Time Disbursement Infrastructure</span>
+              <span class="impact">Split Payment Management</span>
+              <span class="impact">Virtual Account Reconciliation</span>
+            </div>
+            <div class="blocklabel">Why Movantis</div>
+            <ul class="list">
+              <li>{{c}} Direct local rail access</li>
+              <li>{{c}} RTP integration capabilities</li>
+              <li>{{c}} Orchestration engine for optimization</li>
+              <li>{{c}} Built-in liquidity management</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <div class="blocklabel" style="margin-top:0;">How It Works</div>
+              <div class="flow">
+                <div class="flow-step"><div class="flow-num">1</div><div><h5>Single API Integration</h5><p>One contract for the whole region.</p></div></div>
+                <div class="flow-step"><div class="flow-num">2</div><div><h5>Local Rail Connectivity</h5><p>Direct access to in-country payment rails.</p></div></div>
+                <div class="flow-step"><div class="flow-num">3</div><div><h5>Intelligent Transaction Routing</h5><p>Routed for the highest success rate.</p></div></div>
+                <div class="flow-step"><div class="flow-num">4</div><div><h5>Real-Time Monitoring</h5><p>Live visibility across every transaction.</p></div></div>
+                <div class="flow-step"><div class="flow-num">5</div><div><h5>Settlement &amp; Reporting</h5><p>Unified settlement and reconciliation.</p></div></div>
+              </div>
+              <div class="blocklabel">Business Impact</div>
+              <div class="impact-grid">
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Faster time to market</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Higher transaction success rates</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Reduced integration complexity</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Lower operational overhead</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Enhanced user experience</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar C -->
+      <div class="panel" id="panel-dfi" role="tabpanel">
+        <div class="pillar-grid">
+          <div>
+            <h3 style="font-size:30px;">Digital Financial Infrastructure</h3>
+            <div class="subproducts">
+              <span class="subproduct">Wallet</span>
+              <span class="subproduct">Issuing</span>
+              <span class="subproduct">Virtual Accounts</span>
+              <span class="subproduct">Embedded Finance Stack</span>
+            </div>
+            <div class="blocklabel">The Challenge</div>
+            <p style="color:var(--slate-300); font-size:14.5px; margin:0 0 8px;">Launching financial products requires deep regulatory navigation and banking integration.</p>
+            <ul class="list">
+              <li>{{c}} Regulatory navigation</li>
+              <li>{{c}} Banking integrations</li>
+              <li>{{c}} Compliance orchestration</li>
+              <li>{{c}} Settlement management</li>
+              <li>{{c}} Infrastructure scalability</li>
+            </ul>
+            <div class="blocklabel">Core Use Cases</div>
+            <div class="impact-row">
+              <span class="impact">Digital Wallet Deployment</span>
+              <span class="impact">Card Issuing Programs</span>
+              <span class="impact">Embedded Finance for Platforms</span>
+              <span class="impact">Neobank Infrastructure Enablement</span>
+              <span class="impact">Cross-Border Wallet Settlement</span>
+            </div>
+            <div class="blocklabel">Why Movantis</div>
+            <ul class="list">
+              <li>{{c}} Regulatory-ready architecture</li>
+              <li>{{c}} Integrated compliance layer</li>
+              <li>{{c}} Cross-border native capabilities</li>
+              <li>{{c}} Unified platform via Movantis Switch</li>
+              <li>{{c}} Designed for embedded finance models</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <div class="blocklabel" style="margin-top:0;">How It Works</div>
+              <div class="flow">
+                <div class="flow-step"><div class="flow-num">1</div><div><h5>API-Based Account Creation</h5><p>Spin up accounts programmatically.</p></div></div>
+                <div class="flow-step"><div class="flow-num">2</div><div><h5>Integrated Compliance &amp; KYC</h5><p>Onboarding and screening built in.</p></div></div>
+                <div class="flow-step"><div class="flow-num">3</div><div><h5>Card Issuance &amp; Wallet Management</h5><p>Issue cards and manage balances.</p></div></div>
+                <div class="flow-step"><div class="flow-num">4</div><div><h5>Payment &amp; Cross-Border Connectivity</h5><p>Native access to the Americas network.</p></div></div>
+                <div class="flow-step"><div class="flow-num">5</div><div><h5>Settlement &amp; Reconciliation</h5><p>Unified back-office across products.</p></div></div>
+              </div>
+              <div class="blocklabel">Business Impact</div>
+              <div class="impact-grid">
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Accelerated product launch</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Increased customer acquisition</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>New revenue streams</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Higher platform stickiness</span></div>
+                <div class="impact-card"><div class="ic-up">{{up}}</div><span>Multi-country scalability</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOLUTIONS ============ -->
+    <section class="wrap" id="solutions">
+      <div class="section-head reveal">
+        <span class="eyebrow">Industries We Serve</span>
+        <h2 class="h-sec">Built for whoever moves money.</h2>
+        <p class="lead">Select your world. Every audience gets the same engine — and a strategic advantage that lands hard.</p>
+      </div>
+
+      <div class="seg reveal" data-d="1" role="tablist" aria-label="Customer verticals">
+        <button role="tab" aria-selected="true" data-v="banks">Banks &amp; FIs</button>
+        <button role="tab" aria-selected="false" data-v="mtos">Remittance &amp; MTOs</button>
+        <button role="tab" aria-selected="false" data-v="fintechs">Fintechs &amp; Neobanks</button>
+        <button role="tab" aria-selected="false" data-v="marketplaces">Marketplaces</button>
+        <button role="tab" aria-selected="false" data-v="enterprise">Enterprise</button>
+        <button role="tab" aria-selected="false" data-v="global">Global → LATAM</button>
+      </div>
+
+      <div class="card reveal" data-d="2" id="vertCard"><!-- injected by JS --></div>
+
+      <div class="pillars2x2 reveal" data-d="3" style="margin-top:16px;">
+        <div class="mini"><h6>Growth &amp; Revenue</h6><p>New corridors, new products, more volume per user.</p></div>
+        <div class="mini"><h6>Operational &amp; Cost Optimization</h6><p>One integration replaces many; lower overhead.</p></div>
+        <div class="mini"><h6>Liquidity &amp; Capital Efficiency</h6><p>Less idle capital, reduced prefunding, hybrid settlement.</p></div>
+        <div class="mini"><h6>Risk &amp; Regulatory Advantage</h6><p>Multi-country licensing and built-in compliance.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ USE CASES ============ -->
+    <section class="wrap" id="use-cases">
+      <div class="section-head reveal">
+        <span class="eyebrow">Use Cases</span>
+        <h2 class="h-sec">Outcomes, not just endpoints.</h2>
+      </div>
+      <div class="uc-grid"><!-- injected by JS --></div>
+    </section>
+
+    <!-- ============ COVERAGE ============ -->
+    <section class="wrap" id="coverage">
+      <div class="cov-grid">
+        <div class="reveal">
+          <span class="eyebrow">Coverage</span>
+          <h2 class="h-sec" style="font-size:clamp(28px,3.6vw,44px);">Connecting financial ecosystems across the Americas.</h2>
+          <p class="lead">Direct local rails, cross-border corridors, multi-currency support, regulatory licensing coverage, and fiat &amp; stablecoin rails — anchored on the US ↔ LATAM axis and extending worldwide.</p>
+          <div class="impact-row" style="margin-top:22px;">
+            <span class="impact">Local Rails</span>
+            <span class="impact">Cross-Border Corridors</span>
+            <span class="impact">Multi-Currency Support</span>
+            <span class="impact">Regulatory Licensing</span>
+            <span class="impact">Fiat &amp; Stablecoin rails</span>
+          </div>
+        </div>
+        <div class="cov-list reveal" data-d="1"><!-- injected by JS --></div>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="wrap" id="why">
+      <div class="section-head reveal" style="text-align:center;">
+        <span class="eyebrow" style="justify-content:center;">Why Movantis</span>
+        <h2 class="h-sec" style="margin-inline:auto;">The infrastructure layer for moving money across the Americas.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="card why-card reveal"><div class="k">Infrastructure &amp; Regional Strength</div><h4>Real financial infrastructure</h4><p>Direct access to local rails and cross-border corridors across the Americas. Multi-country licensing and regulatory strength across the U.S. and Latin America.</p></div>
+        <div class="card why-card reveal" data-d="1"><div class="k">Intelligent &amp; Capital-Efficient</div><h4>Smart routing &amp; orchestration</h4><p>Optimized cost, speed and reliability through intelligent rail selection. Traditional and digital rails designed for capital efficiency. Hybrid settlement &amp; liquidity.</p></div>
+        <div class="card why-card reveal" data-d="2"><div class="k">Compliance &amp; Regulatory Layer</div><h4>Compliance, built in</h4><p>AML, KYC, sanctions screening and real-time monitoring across jurisdictions — embedded in every transaction, not bolted on.</p></div>
+        <div class="card why-card reveal" data-d="3"><div class="k">Platform &amp; Scale</div><h4>One integration. Full access.</h4><p>Modular, scalable architecture. Real-time &amp; stablecoin capabilities. Embedded finance enablement powering wallets, issuing and financial products at high volume.</p></div>
+      </div>
+      <p class="umbrella reveal" data-d="2">Institutional-grade infrastructure combining <b>compliance</b>, <b>routing intelligence</b>, <b>licensing strength</b> and <b>hybrid settlement</b>.</p>
+    </section>
+
+    <!-- ============ DEVELOPERS ============ -->
+    <section class="wrap" id="developers">
+      <div class="dev-grid">
+        <div class="reveal">
+          <span class="eyebrow">For Developers</span>
+          <h2 class="h-sec" style="font-size:clamp(28px,3.6vw,44px);">Build on the financial infrastructure of the Americas.</h2>
+          <p class="lead">Movantis Switch gives you one unified API and a modular stack — multi-rail orchestration, a full sandbox, SDKs and guides to ship fast.</p>
+          <div class="dev-feats">
+            <div class="dev-feat">{{b}} Movantis Switch — Unified API</div>
+            <div class="dev-feat">{{b}} Modular Financial Stack</div>
+            <div class="dev-feat">{{b}} Multi-Rail Orchestration</div>
+            <div class="dev-feat">{{b}} Sandbox Environment</div>
+            <div class="dev-feat">{{b}} SDKs &amp; Documentation</div>
+            <div class="dev-feat">{{b}} Integration Guides</div>
+          </div>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary" data-magnetic>Start Building</a>
+            <a href="#contact" class="btn btn-ghost" data-magnetic>View Documentation</a>
+          </div>
+        </div>
+        <div class="reveal" data-d="1">
+          <div class="code">
+            <div class="code-head">
+              <span class="code-dots"><i></i><i></i><i></i></span>
+              <div class="code-tabs" role="tablist" aria-label="Code language">
+                <button role="tab" aria-selected="true" data-code="curl">cURL</button>
+                <button role="tab" aria-selected="false" data-code="node">Node</button>
+                <button role="tab" aria-selected="false" data-code="python">Python</button>
+              </div>
+              <button class="code-copy" id="codeCopy">Copy</button>
+            </div>
+            <pre><code class="cb active" data-cb="curl"><span class="tok-c"># Create a US → MX payout via Movantis Switch</span>
+curl <span class="tok-k">-X POST</span> https://api.movantis.com<span class="tok-p">/v1/transfers</span> \
+  <span class="tok-k">-H</span> <span class="tok-s">"Authorization: Bearer sk_live_…"</span> \
+  <span class="tok-k">-H</span> <span class="tok-s">"Content-Type: application/json"</span> \
+  <span class="tok-k">-d</span> <span class="tok-s">'{
+    "source": { "country": "US", "currency": "USD", "amount": 500.00 },
+    "destination": { "country": "MX", "currency": "MXN", "method": "bank_account" },
+    "routing": "optimal",
+    "settlement": "hybrid"
+  }'</span></code><code class="cb" data-cb="node"><span class="tok-c">// Create a US → MX payout via Movantis Switch</span>
+<span class="tok-k">import</span> { Movantis } <span class="tok-k">from</span> <span class="tok-s">"@movantis/node"</span>;
+<span class="tok-k">const</span> movantis = <span class="tok-k">new</span> <span class="tok-n">Movantis</span>(process.env.<span class="tok-n">MOVANTIS_KEY</span>);
+
+<span class="tok-k">const</span> transfer = <span class="tok-k">await</span> movantis.transfers.<span class="tok-n">create</span>({
+  source:      { country: <span class="tok-s">"US"</span>, currency: <span class="tok-s">"USD"</span>, amount: <span class="tok-p">500.0</span> },
+  destination: { country: <span class="tok-s">"MX"</span>, currency: <span class="tok-s">"MXN"</span>, method: <span class="tok-s">"bank_account"</span> },
+  routing:     <span class="tok-s">"optimal"</span>,
+  settlement:  <span class="tok-s">"hybrid"</span>,
+});
+
+console.<span class="tok-n">log</span>(transfer.rail); <span class="tok-c">// "rtp_spei"</span></code><code class="cb" data-cb="python"><span class="tok-c"># Create a US → MX payout via Movantis Switch</span>
+<span class="tok-k">import</span> movantis
+
+client = movantis.<span class="tok-n">Client</span>(api_key=os.environ[<span class="tok-s">"MOVANTIS_KEY"</span>])
+
+transfer = client.transfers.<span class="tok-n">create</span>(
+    source={<span class="tok-s">"country"</span>: <span class="tok-s">"US"</span>, <span class="tok-s">"currency"</span>: <span class="tok-s">"USD"</span>, <span class="tok-s">"amount"</span>: <span class="tok-p">500.00</span>},
+    destination={<span class="tok-s">"country"</span>: <span class="tok-s">"MX"</span>, <span class="tok-s">"currency"</span>: <span class="tok-s">"MXN"</span>, <span class="tok-s">"method"</span>: <span class="tok-s">"bank_account"</span>},
+    routing=<span class="tok-s">"optimal"</span>,
+    settlement=<span class="tok-s">"hybrid"</span>,
+)
+
+<span class="tok-k">print</span>(transfer.rail)  <span class="tok-c"># "rtp_spei"</span></code></pre>
+            <div style="padding:14px 20px; border-top:1px solid var(--hair); font-family:'SF Mono',monospace; font-size:12px; color:var(--slate-400);">
+              <span style="color:var(--cyan-400);">↳ 201 Created</span> &nbsp; rail: <span style="color:var(--orange-400);">rtp_spei</span> · fx: 17.12 · eta: <span style="color:#fff;">~60s</span> · settlement: <span style="color:var(--cyan-400);">hybrid</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="wrap" id="how">
+      <div class="section-head reveal" style="text-align:center;">
+        <span class="eyebrow" style="justify-content:center;">How It Works</span>
+        <h2 class="h-sec" style="margin-inline:auto;">Simple integration. Sophisticated orchestration.</h2>
+        <p class="lead" style="margin-inline:auto;">One end-to-end flow, from origination to reconciliation — the active node lights up as money moves.</p>
+      </div>
+      <div class="how-flow reveal" data-d="1" id="howFlow"><!-- injected by JS --></div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final wrap" id="contact">
+      <div class="reveal in">
+        <span class="eyebrow" style="justify-content:center;">Get Started</span>
+        <h2>Ready to move money across the Americas?</h2>
+        <p class="lead">One integration. Full ecosystem access. Let's build the money-movement layer for your business.</p>
+        <p class="slogan">Move Value. <b>Unlock Growth.</b></p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary" data-magnetic>Start Building <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#" class="btn btn-ghost" data-magnetic>Talk to our team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-col foot-about">
+          <a href="#top" class="brand" aria-label="Movantis">
+            <svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <path d="M34 21 H70 V79" stroke="url(#mkB)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="43" cy="60" r="16.5" stroke="url(#mkB)" stroke-width="10.5"/>
+              <defs><linearGradient id="mkB" x1="20" y1="14" x2="82" y2="88"><stop stop-color="#FF8534"/><stop offset="1" stop-color="#E85D00"/></linearGradient></defs>
+            </svg>
+            MOVANTIS
+          </a>
+          <p class="slogan">Move Value. <b>Unlock Growth.</b></p>
+          <p>Institutional-grade financial infrastructure built for the Americas. One integration. Full ecosystem access.</p>
+          <p class="partners">Send Partners · Receive Partners · World-Class Payment Network</p>
+        </div>
+        <div class="foot-col">
+          <h5>Products</h5>
+          <a href="#products">Cross-Border</a>
+          <a href="#products">Payments</a>
+          <a href="#products">Digital Financial Infra</a>
+          <a href="#developers">Movantis Switch</a>
+        </div>
+        <div class="foot-col">
+          <h5>Industries</h5>
+          <a href="#solutions">Banks &amp; FIs</a>
+          <a href="#solutions">Remittance &amp; MTOs</a>
+          <a href="#solutions">Fintechs &amp; Neobanks</a>
+          <a href="#solutions">Marketplaces</a>
+        </div>
+        <div class="foot-col">
+          <h5>Developers</h5>
+          <a href="#developers">Documentation</a>
+          <a href="#developers">Sandbox</a>
+          <a href="#developers">SDKs</a>
+          <a href="#developers">Integration Guides</a>
+        </div>
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="#">About Us</a>
+          <a href="#">Leadership</a>
+          <a href="#">Part of our Group</a>
+          <a href="#">News</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span class="cr">© Movantis. All rights reserved.</span>
+        <div class="legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Compliance</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- globe.gl bundles three.js -->
+  <script src="https://unpkg.com/globe.gl@2.34.4/dist/globe.gl.min.js" defer></script>
+  <script src="assets/js/globe.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
