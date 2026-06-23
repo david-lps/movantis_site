@@ -70,7 +70,14 @@
     const panel = $("#panel-" + key);
     if (panel) panel.classList.add("active");
   }
-  $$(".tab").forEach((tab) => tab.addEventListener("click", () => activateProduct(tab.dataset.tab)));
+  $$(".tab").forEach((tab) => tab.addEventListener("click", () => {
+    if (tab.dataset.jump) {
+      const el = document.getElementById(tab.dataset.jump);
+      if (el) el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      return;
+    }
+    activateProduct(tab.dataset.tab);
+  }));
 
   /* ---------- code language tabs + copy ---------- */
   $$("[data-code]").forEach((b) => {
@@ -127,73 +134,97 @@
   const VERTICALS = {
     banks: {
       name: "Banks & Financial Institutions",
-      challenge: "Modernize legacy infrastructure and compete with fintech-native players — digitizing cross-border flows and expanding markets without regulatory friction, while improving capital efficiency.",
-      enables: ["Expand remittance corridors", "Launch digital remittance channels", "Offer real-time payouts", "Monetize FX", "Embed financial services"],
-      advantage: "Digital transformation without rebuilding core systems — competitive parity with fintechs, infrastructure depth without the operational burden.",
+      challenge: "Modernize legacy infrastructure and compete with fintech-native players — digitizing cross-border flows, adopting stablecoin settlement, and expanding markets without regulatory friction while improving capital efficiency.",
+      enables: ["Expand remittance corridors", "Settle cross-border faster with stablecoin rails", "Offer real-time payouts", "Monetize FX", "Embed digital wallets & issuing"],
+      advantage: "Digital transformation without rebuilding core systems — competitive parity with fintechs, plus regulated access to stablecoin settlement.",
       pillars: {
-        growth: "Expand corridors, launch digital channels and monetize FX & new services.",
+        growth: "Expand corridors, launch digital channels and monetize FX & stablecoin settlement.",
         ops: "Modernize without rebuilding core systems — one integration replaces many providers.",
-        liquidity: "Improve capital efficiency and liquidity management across markets.",
-        risk: "Operate under a strong multi-market licensing & compliance foundation.",
+        liquidity: "24/7 stablecoin settlement cuts idle capital and prefunding.",
+        risk: "Strong multi-market licensing & compliance — including the stablecoin last mile.",
       },
     },
     mtos: {
       name: "Remittance Providers & MTOs",
       challenge: "Rising competition, margin compression and regulatory pressure, with liquidity fragmentation and operational inefficiencies across corridors.",
-      enables: ["Expand new corridors", "Launch digital wallet integration", "Improve payout speed", "Deliver real-time remittance experiences"],
-      advantage: "Evolve from traditional operators into digital financial ecosystems.",
+      enables: ["Launch stablecoin corridors & licensed last-mile payout", "Add digital wallet integration", "Improve payout speed", "Deliver real-time remittance experiences"],
+      advantage: "Evolve from traditional operators into digital, stablecoin-enabled financial ecosystems.",
       pillars: {
-        growth: "Open new corridors and add digital wallet experiences to grow volume.",
-        ops: "Improve payout speed and cut operational inefficiency across corridors.",
-        liquidity: "Manage liquidity across corridors with less idle capital.",
-        risk: "Meet regulatory pressure with built-in compliance across markets.",
+        growth: "Open new corridors — including stablecoin — and add wallet experiences.",
+        ops: "Faster payouts and less operational drag across corridors.",
+        liquidity: "24/7 settlement and pre-funding keep money moving on weekends.",
+        risk: "Built-in compliance and the licensed last mile across markets.",
       },
     },
     fintechs: {
       name: "Fintechs & Neobanks",
       challenge: "Scale quickly across markets, navigate regulation, reduce time-to-market and compete with global players.",
-      enables: ["Launch multi-country operations", "Embed cross-border payments", "Monetize FX", "Offer wallets & issuing", "Increase volume per user"],
-      advantage: "Scale regionally without building banking infrastructure from scratch.",
+      enables: ["Launch multi-country operations", "Embed cross-border & stablecoin payments", "Offer wallet spendability — QR & cards on stablecoin balances", "Monetize FX", "Increase volume per user"],
+      advantage: "Scale regionally — fiat and stablecoin — without building banking infrastructure from scratch.",
       pillars: {
-        growth: "Launch multi-country operations and grow volume per user with embedded finance.",
-        ops: "Reduce time-to-market — skip building banking infrastructure from scratch.",
-        liquidity: "Access FX and liquidity networks without heavy prefunding.",
+        growth: "Grow volume per user with embedded finance and stablecoin spend.",
+        ops: "Reduce time-to-market — one integration for fiat and stablecoin rails.",
+        liquidity: "Tap FX and 24/7 stablecoin liquidity without heavy prefunding.",
         risk: "Scale across markets under a regulated, compliant foundation.",
       },
     },
-    marketplaces: {
-      name: "Marketplaces & Digital Platforms",
-      challenge: "Multi-party and split payments, real-time payouts, cross-border seller funding and compliance across countries.",
-      enables: ["Monetize payment flows", "Increase seller onboarding & retention", "Expand geographies", "Launch embedded wallet experiences"],
-      advantage: "Transform payments from a cost center into a revenue driver.",
+    cryptoex: {
+      name: "Crypto Exchanges",
+      challenge: "Give users real-world utility for their stablecoin balances and reliable local on/off-ramps across Latin America — under compliance, at scale.",
+      enables: ["Local fiat on/off-ramp (SPEI, PIX, Bre-B)", "Wallet spendability — QR local spend", "Global card issuing on balances", "Multi-rail wallet connectivity"],
+      advantage: "Turn stablecoin balances into spendable money — and own the LatAm on/off-ramp.",
       pillars: {
-        growth: "Monetize payment flows; grow seller onboarding, retention and geographies.",
+        growth: "New spend and on/off-ramp revenue across markets.",
+        ops: "One integration to many rails and local last miles.",
+        liquidity: "24/7 settlement and pre-funding for instant local cash-out.",
+        risk: "Licensed last mile and built-in compliance.",
+      },
+    },
+    stablecoinnet: {
+      name: "Stablecoin Networks & Issuers",
+      challenge: "Drive real-world adoption and settlement volume for your stablecoin — which needs licensed distribution, last-mile payout and spend acceptance across markets.",
+      enables: ["Licensed last-mile off-ramp into local fiat", "Origination into the network", "Local spend (QR) & global card acceptance", "Liquidity & 24/7 settlement"],
+      advantage: "The regulated distribution and last mile that turns network volume into real-world usage.",
+      pillars: {
+        growth: "Expand corridors and spend acceptance for the network.",
+        ops: "A single integration to LatAm rails and local last miles.",
+        liquidity: "Pre-funding and 24/7 settlement keep the network liquid.",
+        risk: "Per-market licensing and compliance across jurisdictions.",
+      },
+    },
+    marketplaces: {
+      name: "Marketplaces & Gig Economy",
+      challenge: "Multi-party and split payments, instant payouts to sellers and gig workers, cross-border funding and compliance across countries.",
+      enables: ["Automate split payments & instant payouts", "Pay sellers & gig workers in local fiat or stablecoin", "Expand geographies", "Launch embedded wallet experiences"],
+      advantage: "Transform payments from a cost center into a revenue driver — with instant, 24/7 payouts.",
+      pillars: {
+        growth: "Monetize payment flows; grow seller & worker onboarding and geographies.",
         ops: "Automate split payments and real-time payouts through one integration.",
-        liquidity: "Fund sellers cross-border with efficient liquidity.",
+        liquidity: "Fund payouts cross-border 24/7 with stablecoin liquidity.",
         risk: "Stay compliant across countries as you expand.",
       },
     },
     enterprise: {
       name: "Enterprise & Cross-Border Commerce",
       challenge: "FX volatility, cross-border supplier payments, liquidity fragmentation, settlement delays and operational complexity.",
-      enables: ["Expand trade flows", "Improve supplier relationships", "Optimize FX margins", "Accelerate settlement"],
-      advantage: "Institutional-grade cross-border infrastructure without banking buildout.",
+      enables: ["Expand trade flows", "Settle supplier payments faster with stablecoin rails", "Optimize FX margins", "Accelerate settlement"],
+      advantage: "Institutional-grade cross-border infrastructure — traditional and stablecoin — without banking buildout.",
       pillars: {
         growth: "Expand trade flows and strengthen supplier relationships globally.",
         ops: "Simplify cross-border supplier payments and reconciliation.",
-        liquidity: "Optimize FX margins, accelerate settlement and free up working capital.",
+        liquidity: "Optimize FX and use 24/7 stablecoin settlement to free working capital.",
         risk: "Institutional-grade compliance across jurisdictions.",
       },
     },
     global: {
       name: "Global Platforms Expanding into LATAM",
       challenge: "Fragmented regulation, integrating local rails, FX & liquidity, compliance and time-to-market.",
-      enables: ["Enter multiple countries through one integration", "Offer localized payouts", "Monetize regional flows", "Accelerate customer acquisition"],
-      advantage: "Scale across LATAM with institutional confidence.",
+      enables: ["Enter multiple countries through one integration", "Offer localized fiat & stablecoin payouts", "Monetize regional flows", "Accelerate customer acquisition"],
+      advantage: "Scale across LATAM — fiat and stablecoin — with institutional confidence.",
       pillars: {
         growth: "Enter multiple countries through one integration; monetize regional flows.",
-        ops: "Offer localized payouts without per-country buildout.",
-        liquidity: "Tap local liquidity and FX without heavy prefunding.",
+        ops: "Localized payouts without per-country buildout.",
+        liquidity: "Local liquidity, FX and 24/7 stablecoin settlement without heavy prefunding.",
         risk: "Scale across LATAM with institutional regulatory confidence.",
       },
     },
