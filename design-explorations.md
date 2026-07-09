@@ -6,6 +6,100 @@ que precisar.
 
 ---
 
+## ⭐ PROMPT-PRONTO (starter) — cole isto no claude.ai/design
+
+> Build a **stunning, premium marketing homepage** for **Movantis** — the corporate brand
+> behind a unified financial-infrastructure platform that moves value across high-variance
+> markets (the Americas and beyond) through a single integration. Quality bar: it must stand
+> next to **Stripe, Adyen, Linear and Vercel** and feel distinctly Movantis — institutional,
+> regulated, "infrastructure", never crypto-gimmick.
+>
+> **Brand:** primary orange `#FF7F39` (light `#FF9A5E`, dark `#E8631C`); deep near-black base
+> `#0A0A0F`; cyan `#2DD4BF` as a sparing accent for digital/stablecoin rails. Font: **Inter**.
+> Dark, cinematic "control-room" aesthetic with generous whitespace and confident typography.
+>
+> **Hero — H1:** "Powering the global flow of value across high-variance markets."
+> **Sub:** "Movantis moves value across markets through a single integration — cross-border,
+> payments, FX, issuing, wallets and stablecoin settlement." CTAs: "Scale your business" /
+> "Talk to our team". Signature moment: an interactive globe of US↔LATAM money corridors.
+>
+> **Sections:** hero (globe) · trust marquee (Banks · MTOs · Crypto Exchanges · Stablecoin
+> Networks · Financial Rails) · capabilities as a modern **bento grid** (Cross-Border ·
+> Payments · FX & Liquidity · Issuing · Wallets · a featured **Stablecoin Settlement** cell) ·
+> big animated metrics (**130+ countries · 80,000+ payout locations · 70+ MTOs · $60B+ annual
+> volume**) · a "fragmented → one integration" flow animation · industries selector (8:
+> Banks, MTOs, Fintechs, Crypto Exchanges, Stablecoin Networks, Marketplaces & Gig Economy,
+> Enterprise, Global→LATAM) · coverage · a contact section · footer with legal.
+>
+> **Make it 10★:** oversized display type with tight tracking, motion with real choreography
+> (staggered reveals, count-ups, spotlight hovers, magnetic buttons), gradient hairline
+> borders, and honor `prefers-reduced-motion`. Fully responsive. Start with the **hero**, show
+> me a live preview, then we'll build the rest section by section.
+
+*(Depois do hero, peça: "agora a seção de capabilities em bento", "agora as métricas", "agora
+o mobile". Para variar a direção, troque a 1ª frase por uma das 6 direções da Seção 3.)*
+
+---
+
+## 🇬🇧 ENGLISH — paste-ready prompts (recommended for the design tool)
+
+### CORE (paste this once)
+
+> You are a world-class art director + front-end engineer (Stripe / Linear / Vercel / Adyen
+> level). Design a **stunning marketing homepage** for **MOVANTIS** — the corporate brand
+> behind a unified financial-infrastructure platform that moves value across high-variance
+> markets (the Americas and beyond) through **a single integration**. Institutional, regulated,
+> "infrastructure" — never crypto-gimmick. It must stand next to Stripe/Adyen and feel
+> distinctly Movantis.
+>
+> **Brand:** primary orange `#FF7F39` (light `#FF9A5E`, dark `#E8631C`); deep near-black base
+> `#0A0A0F`; cyan `#2DD4BF` as a sparing accent for digital/stablecoin rails. Font: **Inter**.
+>
+> **Hero H1:** "Powering the global flow of value across high-variance markets." **Sub:**
+> "Movantis moves value across markets through a single integration — cross-border, payments,
+> FX, issuing, wallets and stablecoin settlement." CTAs: "Scale your business" / "Talk to our
+> team". Signature moment: an **interactive globe of US↔LATAM money corridors**.
+>
+> **Sections:** hero (globe) · trust marquee (Banks · MTOs · Crypto Exchanges · Stablecoin
+> Networks · Financial Rails) · capabilities (Cross-Border · Payments · FX & Liquidity ·
+> Issuing · Wallets · a **featured Stablecoin Settlement**) · big animated metrics (**130+
+> countries · 80,000+ payout locations · 70+ MTOs · $60B+ annual volume**) · a "fragmented →
+> one integration" flow animation · industries (Banks, MTOs, Fintechs, Crypto Exchanges,
+> Stablecoin Networks, Marketplaces & Gig Economy, Enterprise, Global→LATAM) · coverage ·
+> contact · footer with legal (GLBA / Global Privacy).
+>
+> **Make it 10★:** oversized display type with tight tracking; motion with real choreography
+> (staggered reveals, count-ups, spotlight hovers, magnetic buttons); gradient hairline
+> borders; fully responsive; honor `prefers-reduced-motion`. **Build the HERO first, show a
+> live preview, then we continue section by section.**
+
+### DIRECTION (paste right after CORE — pick one, then say "now the hero")
+
+1. **Editorial / Swiss** — *Art direction: Editorial / Swiss-grotesk, like Linear & Vercel.
+   Huge type, strict grid, generous whitespace, mono-font micro-labels, near-monochrome with
+   orange used only as a precise accent. Confidence through restraint.*
+2. **Control Room / Data-Live** — *Art direction: a live "control room" — telemetry everywhere:
+   a real-time corridor ticker, mini operational dashboards, animated counters, a network/ops
+   map. Sells scale and reliability.*
+3. **Spatial / 3D-first** — *Art direction: spatial, 3D-first. The corridor globe is the
+   full-bleed hero protagonist with a cinematic camera, glowing arcs, depth and atmosphere;
+   the type overlays the scene.*
+4. **Scrollytelling / Motion-first** — *Art direction: cinematic scrollytelling. Tell the
+   journey of money moving — sticky pinned sections, state transitions, the "fragmented →
+   unified" story animating as you scroll.*
+5. **Light Premium / Institutional** — *Art direction: light mode, institutional and serious
+   (a regulated financial institution). Warm off-white, generous whitespace, a characterful
+   display serif for headlines, orange as a refined accent. Trust and gravitas.*
+6. **Bold Fintech / Color Blocks** — *Art direction: bold fintech — confident color blocks,
+   orange as the protagonist, oversized type, high-contrast sections. Energetic and memorable.*
+
+### Follow-ups (say these one at a time after the hero looks right)
+> "Now the capabilities section as a bento grid." → "Now the animated metrics band." →
+> "Now the industries selector." → "Now make it fully responsive / show me mobile." →
+> "Tighten the type scale and spacing rhythm." → "Add a live corridor ticker under the hero."
+
+---
+
 ## 0. Como usar o claude.ai/design aqui
 
 O claude.ai/design é ótimo para **divergir rápido** — gerar várias direções visuais em
